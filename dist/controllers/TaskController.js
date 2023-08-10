@@ -72,7 +72,6 @@ const editTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
         const task = yield TaskModel_1.default.findByIdAndUpdate(id, req.body);
-        console.log(task);
         res.status(200).json({
             status: "success",
             data: task,
