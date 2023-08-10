@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const TaskRoutes_1 = require("./routes/TaskRoutes");
 require("dotenv").config();
 const mongoose_1 = __importDefault(require("mongoose"));
+const cors_1 = __importDefault(require("cors"));
 const MONGODB_URI = process.env.MONGO_URI;
 mongoose_1.default
     .connect(MONGODB_URI, {
@@ -16,6 +17,9 @@ mongoose_1.default
     .then((conn) => console.log("Success"))
     .catch((err) => console.log(err));
 const app = (0, express_1.default)();
+app.use((0, cors_1.default)({
+    origin: 'http://localhost:3000', // Replace with your Next.js frontend URL
+}));
 const port = process.env.PORT || 8000;
 app.use(express_1.default.json());
 app.use("/api/", TaskRoutes_1.router);

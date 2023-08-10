@@ -4,6 +4,7 @@ interface ITask extends Document {
   title: string;
   description: string;
   dueDate: Date;
+  completed: boolean;
 }
 
 const taskSchema = new Schema<ITask>({
@@ -19,6 +20,10 @@ const taskSchema = new Schema<ITask>({
     type: Date,
     required: [true, "A task must have a date"],
   },
+  completed: {
+    type: Boolean,
+    default: false
+  }
 });
 
 const Task = mongoose.model<ITask>('Task', taskSchema);

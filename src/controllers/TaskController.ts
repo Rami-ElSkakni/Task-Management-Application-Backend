@@ -58,7 +58,6 @@ const editTask = async (req: any, res: any) => {
     try {
       const {id} = req.params;
       const task = await Task.findByIdAndUpdate(id, req.body)
-  
       res.status(200).json({
         status: "success",
         data: task,

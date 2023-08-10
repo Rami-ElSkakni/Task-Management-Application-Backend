@@ -37,6 +37,10 @@ const taskSchema = new mongoose_1.Schema({
         type: Date,
         required: [true, "A task must have a date"],
     },
+    completed: {
+        type: Boolean,
+        default: false
+    }
 });
 const Task = mongoose_1.default.model('Task', taskSchema);
 exports.default = Task;
