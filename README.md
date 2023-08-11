@@ -15,3 +15,5 @@ Step 4:
 Run the app by 
 1. npm install
 2. npm start
+
+PS: if u don't have nodemon, make sure to download it as npm start only works if you have nodemon
